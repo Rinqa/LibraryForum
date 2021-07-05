@@ -1,0 +1,78 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<style>
+    .counter{
+        width: 25%;
+        margin: 2%;
+        padding: 2%;
+    }
+    h5{
+        color: white;
+    }
+    h2{
+        color: white;
+    }
+    i{
+        color: white;
+    }
+</style>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">    
+<div class="row">
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-book" style="width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_Librat}}</h2>
+            <h5>Total Librat</h5>
+            </center>
+        </div>
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-book" style="width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_audio}}</h2>
+            <h5>Total Audio-Books</h5>
+            </center>
+        </div>
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-users" style="width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_autoret}}</h2   >
+            <h5>Total Autoret</h5>
+            </center>
+        </div>
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-users" style="width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_users}}</h2>
+            <h5>Total Perdorues</h5>
+        </center>
+        </div>
+        
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-university" style="width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_fakultetet}}</h2>
+            <h5>Total Fakultete</h5>
+        </center>
+        </div>
+        <div class="counter bg-primary">
+            <center>
+            <p>
+                <i class="fas fa-folder-plus " style= "width: 50px;height:50px; color: white;"></i>
+            </p>
+            <h2>{{total_post}}</h2>
+            <h5>Total Postimet</h5>
+        </center>
+        </div>
+</div>
+{% endblock content %}

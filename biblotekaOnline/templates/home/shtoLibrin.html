@@ -1,0 +1,28 @@
+{% extends "home/Base.html" %}
+{% block content %}
+
+<center>
+    <article class="mt-5 border border-primary rounded" style="width: 50%;background-color: rgba(0,0,0,0.5) !important;">
+      <br>
+    <center>
+      <form class="" enctype="multipart/form-data" method="POST"  style="color:white;">
+        {% csrf_token %}
+        <fieldset style="width: 70%;">
+          <legend>
+            <h1 style="font-family: 'Brush Script MT', cursive">Share With Us</h1>
+          </legend>
+          {{ form.as_p}}
+          <br>
+          <div class="">
+            <button class="btn btn-outline-info" type="submit" name="button">ADD</button>
+        </div>
+        </fieldset>
+
+      </form>
+      </center>
+      <br>
+  </article>
+</center>
+
+{% endblock content %}
+

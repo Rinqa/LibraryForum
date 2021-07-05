@@ -1,0 +1,32 @@
+{% extends 'forhome/base.html'%}{% block content %}
+<style>
+    .card {
+        margin: 5%;
+        width: 250px;
+        height: 150px;
+        border: 0;
+    }
+    .card img{
+        width: 100%;
+        height: 250px;
+    }
+</style>
+<div class="content">
+    <div class="row">
+        {% for i in drejt%}
+
+
+        <div class="card">
+
+            <a href="{% url 'postimetDrejt' i.id %}"><img class="card-img-top" src="{{ i.foto.url }}" alt="Card image cap">
+                <center> 
+                    <b><h6>{{i.id_Drejtimi}}</h6></b>
+                </center>
+
+            </a>
+            
+        </div>
+        {% endfor %} 
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'forhome/base.html'%}{% block content %}
+<style>
+    .btnn{
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    /* Darker background on mouse-over */
+    
+    .btnn:hover {
+        background-color: RoyalBlue;
+    }
+    
+    .card {
+        margin: 1%;
+        width: 45%;
+    }
+</style>
+
+    <div class="row" style="margin-left: 2%;">
+        {% for i in post %}
+        <div class="card">
+            <a href="{% url 'postInfo' i.id%}">
+                <div class="card-header">
+                <h5>{{i.autori}}</h5>
+                <p>Data: {{i.data_postimit}}</p>
+                <h6></h6>
+            </div>
+            <div class="card-body">
+                <h5><b>{{i.titulli}}</b></h5>
+                <h6>Lenda: {{i.id_Lenda}}</h6>
+                <h6>{{i.permbajtja}}</h6>
+
+            </div>
+        </a>
+            <div class="card-footer">
+                <center>
+                <a download="{{i.file}}" href="">
+                    <button class="btnn"><i class="fa fa-download"></i> Download</button>
+                </a></center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

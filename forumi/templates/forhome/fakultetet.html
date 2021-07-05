@@ -1,0 +1,29 @@
+{% extends 'forhome/base.html'%}
+{% block content %}
+<style>
+    .card{
+      margin: 5%;
+        width:150px;
+        height:150px;
+    }
+</style>
+<div class="content">
+    <div class="row">
+        {% for i in fak%}
+
+
+    <div class="card" style="border: 0px">
+              <a href="{% url 'drejt' i.pk%}"><img class="card-img-top" src="{{ i.Logo.url }}" alt="Card image cap">
+               <center> <h6>{{i.Emri}} - {{i.komuna}}</h6>
+                  {% if i.Fakultet == 2 %}
+                   <p>Privat</p>
+                   {% else%}
+                   <p>Publik</p>
+                   {% endif %}
+               </center>
+              </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

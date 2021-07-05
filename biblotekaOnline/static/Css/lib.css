@@ -1,0 +1,16 @@
+.container{
+float:left;
+margin-top:5%;
+height: 100%;
+align-content: left;
+}
+
+.card{
+width: 350px;
+height: 350px;
+margin:auto;
+background-color: rgba(0,0,0,0.5) !important;
+}
+.card-header h3{
+color: white;
+}

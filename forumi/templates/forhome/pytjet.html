@@ -1,0 +1,43 @@
+{% extends 'forhome/base.html'%} {% block content %}
+<style>
+    .btnn{
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    /* Darker background on mouse-over */
+    
+    .btnn:hover {
+        background-color: RoyalBlue;
+    }
+    
+    .card {
+        margin: 1%;
+        width: 45%;
+    }
+</style>
+
+    <div class="row" style="margin-left: 2%;">
+        {% for i in post %}
+        
+        <div class="card">
+            <a href="{% url 'infoPy' i.id%}">
+                <div class="card-header">
+                    <h5>{{i.autori}}</h5>
+                    <p>Data: {{i.data}}</p>
+                    <h6></h6>
+                </div>
+                <div class="card-body">
+                    <h5><b>{{i.text}}</b></h5>
+                    <h5>{{i.drejtimetEfakultetit}}</h5>
+                </div>
+            </a>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

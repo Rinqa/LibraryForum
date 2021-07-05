@@ -1,0 +1,90 @@
+{% extends "home/Base.html" %}
+{% block content %}
+{% load static %}
+<style>
+	h6,a{
+		color: white;
+	}
+	
+	
+</style>
+<ul class="nav justify-content-center" style="background-color: rgba(34,63,90, 0.75);box-shadow: 3px 5px#888888;">
+	{% for j in zhan%}
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'sortZhandri' j.id%}">{{j.zhandri}}</a>
+  </li>
+  {% endfor %}
+  <li class="nav-item">
+  	<a href="{% url 'sort' %}" class = "nav-item nav-link active" ><p>Sort By Likes</p></a>
+  </li>
+  <li class="nav-item">
+  <a href="{% url 'shtoLibrin' %}" class="nav-link nav-link active" ><p>Add Books</p></a>
+  </li>
+</ul>
+
+
+<div class="container">
+        	<div class="row">
+			{% for obj in info %}
+			
+			<div class="col-md-3 col-sm-6">
+        			
+        			
+				<div class="card" style='margin-top: 2%;background-color: rgba(0,0,0,0.5) !important;;margin-bottom: 8%;'>
+					<img src="{{ obj.copertina.url }}" class="card-img-top" alt="{{ obj.copertina.url }}"style=" height:300px">
+					<div class="card-body">
+						<h6 class="card-title">Emri: {{obj.emriLibrit}}</h6>
+						<h6 class= "card-title">Autori:<a href="{% url 'autoriInfo' obj.Autori_id  %}"> {{obj.Autori}}</a></h6>
+						<h6 class="card-title">Zhandri: {{ obj.Zhandri }}</h6>
+				
+						<h6 class="card-title">Lloji Librit: {{obj.klasifikimi}}</h6>
+						<p class="card-title" style="color: white;">Likes: {{ obj.total_likes }} | Dislikes: {{ obj.total_dislikes }}</p>
+						
+						
+						{% if user.is_authenticated %}
+						<form action="{% url 'likes' obj.id %}" method="POST" style="color: white;">
+							{% csrf_token %}
+							<center>
+							<input type="submit" name="action" value="Like" class="btn btn-info" style="margin-left:0%;margin-bottom: 3%;align-self: center;" >
+							<input type="submit" name="action" value="Dislike" formaction="{% url 'dislikes' obj.id %}" class="btn btn-danger" style="margin-bottom: 3%;align-self: center;">
+							</center>
+					  </form>
+					  		<center>
+								
+								<button class="btn btn-danger" onclick="alertt()" ><a href="{% url 'favorite' obj.id%}"><i class="fa fa-heart">to Favorite</i></a></button> 
+								
+								
+								<a class="btn btn-warning" href="" download="{{obj.Pdf}}" style="margin-top: 2%"><i class="fa fa-download"></i> Download</a>
+							</center>
+						{%else%}
+						<form action="{% url 'login'  %}" method="POST" style="color: white;">
+							{% csrf_token %}
+							<center>
+							<input type="submit" name="action" value="Like" class="btn btn-info" style="margin-left:0%;margin-bottom: 3%;align-self: center;" >
+							<input type="submit" name="action" value="Dislike" formaction="{% url 'login'  %}" class="btn btn-danger" style="margin-bottom: 3%;align-self: center;">
+							</center>
+							<button class="btn btn-warning" style="width:100%"><i class="fa fa-download"></i> Download</button>
+
+					  </form>
+						
+					
+						{% endif %}
+						
+					</div>
+			
+					
+					 
+			</div>
+			
+			</div>
+
+
+			  	{% endfor %}
+	    </div>
+
+
+</div>
+
+
+
+{% endblock content %}

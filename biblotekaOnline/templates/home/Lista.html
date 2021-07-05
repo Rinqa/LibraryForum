@@ -1,0 +1,83 @@
+{% extends "home/Base.html" %}
+{% block content %}
+<style>
+td,th,tr{
+border:1px solid black;
+}
+tab{
+ background-color:white;
+ width:50%;
+
+}
+table{
+ background-color:white;
+ width:100%;
+ margin-top:15%;
+
+}
+tr,th,td{
+width:250px;
+text-align:center;
+}
+blockquote {
+  color:white;
+  text-align:center;
+}
+a{
+  color: black;
+}
+a:hover{
+  color: red;
+}
+
+</style>
+
+
+
+<div class="tab" style="float: left;margin-right:10px">
+
+  <table id="myTable">
+      <tr>
+          <th colspan="1">
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Kerko Autorin" title="Type in a name">
+      </th>
+          <th><h3>Autoret</h3></th>
+      </tr>
+
+      <tr>
+          <th>Emri</th>
+          <th>Mbiemri</th>
+      </tr>
+      {% for i in autoret%}
+        <tr>
+            <td><a href="{% url 'autoriInfo' i.id%}">{{ i.Emri}}</a></td>
+            <td>{{i.Mbiemri}}</td>
+        </tr>
+      {% endfor%}
+  </table>
+</div>
+<div class="tab"style="float: right">
+
+  <table id="myTable1">
+
+      <tr>
+          <th><input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Kerko Librin" title="Type in a name"></th>
+          <th ><h3>Librat</h3></th>
+      </tr>
+      <tr>
+          <th>Emri Librit</th>
+          <th>Autori</th>
+      </tr>
+      {% for i in librat%}
+    <tr>
+      <td>{{i.emriLibrit}}</td>
+        <td>{{i.Autori}}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</div>
+
+
+
+{% endblock content %}

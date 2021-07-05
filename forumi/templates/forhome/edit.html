@@ -1,0 +1,22 @@
+{% extends 'forhome/base.html'%} {% block content %}
+<body class="sb-nav-fixed">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Comment Edit
+        </div>
+        <div style="padding-top: 5%;">
+            <center>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   {{ form.as_p }}
+                    <button type="submit" style="margin: 2%;">Update</button>
+                    
+                   
+                </form> 
+                
+            </center>
+        </div>
+    </div> 
+</body>
+{% endblock content%}

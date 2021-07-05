@@ -1,0 +1,55 @@
+{% extends 'home/Base.html'%} {% block content%}
+<style type="text/css">
+	.btnn{
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    /* Darker background on mouse-over */
+    
+    .btnn:hover {
+        background-color: RoyalBlue;
+    }
+    
+    .card{
+    	margin: 5%;
+    	background-color: rgba(0,0,0,0.5);
+    	color: white;
+    }
+</style>
+{% if user.is_authenticated%}
+<div class="text-right">
+    <a class="btn btn-warning" href="{% url 'shtoaudio'%}">Add Audio Book</a>
+</div>
+{% endif%}
+<div class="container">
+    <div class="row">
+        {% for i in audio %}
+        <div class="card">
+            <div class="card-head">
+            	<div class="text-center">
+                <h4>{{i.AudioName}}<h4>
+            </div>
+            </div>
+            <div class="card-body">
+            	<img src="{{i.img.url}}" width="250" height="250">
+            	 <br>
+            	 <audio controls style="max-width: 250px;">
+				  <source src="{{i.audio.url}}" type="audio/ogg">
+				</audio> 
+            </div>
+            <div class="card-footer"> 
+            	<div class="text-center">
+            	<a href="" download="{{i.audio}}" class="btnn"><i class="fa fa-download"></i>Download</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}}

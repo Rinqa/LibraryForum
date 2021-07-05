@@ -1,0 +1,27 @@
+{% extends 'forhome/base.html'%}
+{% block content %}
+<div>
+<center>
+    <article class="mt-5 border border-primary rounded" style="width: 50%;">
+      <br>
+    <center>
+      <form class="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset style="width: 70%;">
+          <legend>
+            <h3 style="font-family: 'Brush Script MT', cursive">Share With Us</h3>
+          </legend>
+          {{ form.as_p}}
+          <br>
+          <div>
+            <button class="btn btn-outline-info" type="submit" name="button">Post</button>
+          </div>
+        </fieldset>
+
+      </form>
+      </center>
+      <br>
+  </article>
+</center>
+</div>
+{% endblock content %}

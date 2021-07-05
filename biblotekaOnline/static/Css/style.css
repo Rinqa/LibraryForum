@@ -1,0 +1,37 @@
+html,body{
+
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+
+margin-top:5%;
+height: 100%;
+align-content: center;
+}
+
+.card{
+width:auto;
+height: auto;
+margin:auto;
+background-color: rgba(0,0,0,0.5) !important;
+color: white;
+}
+.card-footer{
+color:white;
+}
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+

@@ -1,0 +1,84 @@
+{% extends 'forhome/base.html'%}
+{% block content %}
+<style>
+    .btnn{
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 15px;
+        margin:2%;
+    }
+    /* Darker background on mouse-over */
+    
+    .btnn:hover {
+        background-color: RoyalBlue;
+    }
+    
+    .card {
+        margin: 1%;
+        width: 45%;
+    }
+   
+</style>
+
+{%for i in post%}
+	<div class="card">
+            
+        
+                <div class="card-header">
+                <h5>{{i.autori}}</h5>
+                <p>Data: {{i.data}}</p>
+                <h6></h6>
+            </div>
+            <div class="card-body">
+                <h5><b>{{i.text}}</b></h5>
+                <img src="{{i.img.url}}" alt="No Img" style="width: 100%; height: 90%;">
+
+            </div>
+        </div>
+	
+{% endfor %}
+{% for j in com %}
+<div class="card">
+	<div class="card-header">
+		{{j.autori}}
+	</div>
+	<div class="card-body">
+		{{j.pergjigja}}
+		
+	</div>
+	
+	<div class="card-footer">
+		{%if request.user == j.autori %}
+		<a href="{% url 'editP' j.id%}" class="btnn">Edit</a>
+		<a href="{% url 'deleteP' j.id%}" class="btn btn-danger">Delete</a>
+		{% endif %}
+		<div class="text-right">
+			<p>{{j.data}}</p>
+		</div>
+	</div>
+
+	
+</div>
+{% endfor %}
+<div class="card">
+<form class="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+          {{ form.as_p}}
+          
+          <div>
+          	<center>
+            <button class="btnn" type="submit" name="button">Post</button>
+        	</center>
+          </div>
+        </fieldset>
+
+      </form>
+
+</div>             
+
+
+{% endblock content %}

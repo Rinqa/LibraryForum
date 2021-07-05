@@ -1,0 +1,26 @@
+{% extends 'forhome/base.html'%}
+{% block content %}
+<style>
+    .card{
+        margin:2%;
+        width:250px;
+        height:150px;
+    }
+</style>
+<div class="content">
+    <div class="row">
+        {% for i in lendet%}
+            <div class="card" >
+              <a href="{% url 'shto'  i.id %}">
+               <center>
+                   <b><h6>{{i.id_Lenda}}</h6></b>
+                   <b><h6>{{i.Semestri}}</h6></b>
+
+               </center>
+              </a>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock content %}
